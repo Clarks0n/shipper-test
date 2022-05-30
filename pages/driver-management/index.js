@@ -12,7 +12,8 @@ import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { getDriverList, clearState } from '../../store/slices/driverList';
 
 // Styles
-import { PageBody, PagePagination } from './driver.styles';
+import { PageBody, PagePagination } from '../../styles/driver.styles';
+
 
 // Helper
 import moment from 'moment';
