@@ -7,15 +7,15 @@ import { HeaderContainer, HeaderUser, HeaderAvatar, HeaderLogo } from './header.
 const Header = () => {
   return (
     <>
-        <HeaderContainer>  
-            <HeaderLogo />
-            <HeaderUser>
-                <p>Hello, Shipper User</p>
-                <HeaderAvatar>
-                    <FontAwesomeIcon icon="circle-user" />
-                </HeaderAvatar>
-            </HeaderUser>
-        </HeaderContainer>
+      <HeaderContainer>  
+        <HeaderLogo />
+        <HeaderUser>
+          <p>Hello, Shipper User</p>
+          <HeaderAvatar>
+            <FontAwesomeIcon icon="circle-user" />
+          </HeaderAvatar>
+        </HeaderUser>
+      </HeaderContainer>
     </>
   )
 }
