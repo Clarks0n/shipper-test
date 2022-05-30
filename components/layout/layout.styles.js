@@ -16,6 +16,5 @@ export const ContentBlock = styled.div `
 
 export const ContentBody = styled.div`
     flex: 1;
-    overflow-y: scroll;
     padding: 1em;
 `;

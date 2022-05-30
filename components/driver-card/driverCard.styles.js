@@ -56,7 +56,6 @@ export const CardBodyList = styled.div`
       }
     }
   }
-
 `;
 
 
