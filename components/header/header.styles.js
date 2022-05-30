@@ -29,6 +29,8 @@ export const HeaderUser = styled.div`
 `;
 
 export const HeaderAvatar = styled.div`
-  
   margin-left: 1em;
+  @media screen and (max-width: 700px) {
+    font-size: 40px;
+  }
 `;
