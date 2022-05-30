@@ -7,8 +7,8 @@ export const Container = styled.div`
 
 export const ContentBlock = styled.div `
     display: flex;
-    padding: 100px 0px 0px 0px;
     height: calc(100% - 100px);
+    padding: 100px 0px 0px 0px;
     @media screen and (max-width: 700px) {
       padding-left: 0px;
     }
@@ -17,4 +17,5 @@ export const ContentBlock = styled.div `
 export const ContentBody = styled.div`
     flex: 1;
     overflow-y: scroll;
+    padding: 1em;
 `;

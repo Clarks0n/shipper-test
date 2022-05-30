@@ -25,12 +25,8 @@ export const DriverHeaderTitle = styled.div`
     }
 `;
 
-
 export const DriverHeaderContainer = styled.div`
     display: flex;
-`;
-
-export const DriverHeaderButton = styled.div`
     button {
         color: white;
         display: flex;
@@ -50,7 +46,6 @@ export const DriverHeaderButton = styled.div`
         flex: 1;
         flex-direction: column;
         width: 100%;
-        font-size: 0.7em;
     }
 `;
 
@@ -81,6 +76,7 @@ export const DriverHeaderSearch = styled.div`
     }
   }
 `;
+
 
 
 
