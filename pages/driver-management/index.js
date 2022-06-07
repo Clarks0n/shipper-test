@@ -66,6 +66,7 @@ const DriverManagement = () => {
         <DriverCard key={i}
           id={item.login.salt}
           name={item.name.first +" " + item.name.last}
+          telephone={item.phone}
           email={item.email}
           dob={moment(item.dob.date).format('DD-MMM-yyyy')}
         />
@@ -78,7 +79,7 @@ const DriverManagement = () => {
   };
 
   const onNextClick = () =>  {
-   setPage(page + 1);
+    setPage(page + 1);
   };
 
   const onTyping = (value) => {
@@ -121,6 +122,5 @@ const DriverManagement = () => {
     <p>Loading</p>
   )
 }
-<FontAwesomeIcon icon="fa-solid fa-angle-right" />
 
 export default DriverManagement
