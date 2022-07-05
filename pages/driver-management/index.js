@@ -1,4 +1,4 @@
-import React , { useEffect, useState } from 'react';
+import React , { useEffect, useState, useTransition } from 'react';
 
 // Component
 import DriverHeader from '../../components/driver-header';
@@ -14,7 +14,6 @@ import { getDriverList, clearState } from '../../store/slices/driverList';
 // Styles
 import { PageBody, PagePagination } from '../../styles/driver.styles';
 
-
 // Helper
 import moment from 'moment';
 
@@ -26,9 +25,10 @@ const DriverManagement = () => {
     state.driverListSlice.isSuccess
   ],shallowEqual);
 
+  const [isPending, startTransition] = useTransition();
   const [page, setPage] = useState(0);
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = React.useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const driverPerPage = 5;
   const numberOfdriver = page * driverPerPage;
   const totalPages = Math.ceil(dataSource.length / driverPerPage);
@@ -85,12 +85,14 @@ const DriverManagement = () => {
   const onTyping = (value) => {
     setSearchTerm(value);
 
-    const results = dataSource
-    .filter((item) => {
-       return item.name.first.toLowerCase().includes(value)
-    });
+    startTransition(() => {
+      const results = dataSource
+      .filter((item) => {
+        return item.name.first.toLowerCase().includes(value)
+      });
 
-    setSearchResults(results);
+      setSearchResults(results);
+    });
   };
 
   if(isSuccess)
@@ -98,7 +100,8 @@ const DriverManagement = () => {
     <>
       <DriverHeader onTyping={onTyping} />
       <PageBody>
-        {searchTerm === "" ? displayEmployees : displaySearched }
+        {searchTerm === "" ? displayEmployees : 
+          isPending ? "...loading" : displaySearched }
       </PageBody>
 
       <PagePagination>
