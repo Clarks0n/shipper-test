@@ -95,13 +95,23 @@ const DriverManagement = () => {
     });
   };
 
+  const renderSearchTerm = () => {
+    if (isPending) return "...loading";
+
+    if (searchTerm !== "") return displaySearched;
+
+    return displayEmployees;
+
+  };
+
   if(isSuccess)
   return (
     <>
       <DriverHeader onTyping={onTyping} />
       <PageBody>
-        {searchTerm === "" ? displayEmployees : 
-          isPending ? "...loading" : displaySearched }
+        {/* {searchTerm === "" ? displayEmployees : 
+          isPending ? "...loading" : displaySearched } */}
+        { renderSearchTerm()}
       </PageBody>
 
       <PagePagination>
