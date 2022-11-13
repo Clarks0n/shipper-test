@@ -16,6 +16,7 @@ import { PageBody, PagePagination } from '../../styles/driver.styles';
 
 // Helper
 import moment from 'moment';
+import useDebounce from '../../components/hooks/useDebounce';
 
 const DriverManagement = () => {
   const dispatch = useDispatch();
@@ -82,21 +83,30 @@ const DriverManagement = () => {
     setPage(page + 1);
   };
 
+  useDebounce(() => {
+    setSearchResults(
+      dataSource.filter((item) => {
+        return item.name.first.toLowerCase().includes(searchTerm)
+      })
+    )}, [dataSource, searchTerm], 800
+  );
+
   const onTyping = (value) => {
     setSearchTerm(value);
+  //   console.log(value)
 
-    startTransition(() => {
-      const results = dataSource
-      .filter((item) => {
-        return item.name.first.toLowerCase().includes(value)
-      });
+  //   startTransition(() => {
+  //     const results = dataSource
+  //     .filter((item) => {
+  //       return item.name.first.toLowerCase().includes(value)
+  //     });
 
-      setSearchResults(results);
-    });
+  //     setSearchResults(results);
+  //   });
   };
 
   const renderSearchTerm = () => {
-    if (isPending) return "...loading";
+    // if (isPending) return "...loading";
 
     if (searchTerm !== "") return displaySearched;
 
