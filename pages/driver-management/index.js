@@ -18,6 +18,7 @@ import { PageBody, PagePagination } from '../../styles/driver.styles';
 import moment from 'moment';
 import useDebounce from '../../components/hooks/useDebounce';
 
+// With Standard Call redux
 const DriverManagement = () => {
   const dispatch = useDispatch();
 
@@ -142,7 +143,7 @@ const DriverManagement = () => {
     </>
   )
   return (
-    <p>Loading</p>
+    <h1>Loading</h1>
   )
 }
 

@@ -21,13 +21,14 @@ const driverListSlice = createSlice({
   name: "driverList",
   initialState: initialStateValue,
   reducers: {
-    clearState: () =>  initialState
+    clearState: () =>  initialStateValue
   },
   extraReducers: {
     [getDriverList.fulfilled]: (state, action) => {
         state.isFetching = false;
         state.isSuccess = true;
-        return ({ ...state, dataSource: action.payload})
+        state.dataSource = action.payload
+        // return ({ ...state, dataSource: action.payload})
     },
     [getDriverList.pending]: (state, action) => {
         state.isFetching = true;
@@ -35,7 +36,8 @@ const driverListSlice = createSlice({
     [getDriverList.rejected]: (state, action) => {
         state.isFetching = false;
         state.isError = true;
-        state.errorMessage = payload.message;
+        state.errorMessage = action.payload;
+    
     },
   },
 });
